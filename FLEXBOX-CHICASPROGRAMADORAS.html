@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#17132d">
+<title>Flexbox World | Aprende jugando</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Nunito:wght@400;500;600;700;800;900&display=swap');
+:root{--bg:#100e20;--panel:#1b1832;--panel2:#24203f;--line:#393252;--text:#f7f3ff;--muted:#b9b1d1;--purple:#a78bfa;--pink:#f3a6d4;--cyan:#83d9ee;--yellow:#ffdc8b;--green:#8ce0bd;--shadow:0 18px 55px #08061380}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 15% 0%,#342052 0,transparent 35%),radial-gradient(ellipse at 90% 15%,#17364a55 0,transparent 30%),var(--bg);color:var(--text);font-family:Nunito,system-ui,sans-serif;line-height:1.6}button,select,input{font:inherit}button{cursor:pointer}.wrap{width:min(1160px,92%);margin:auto}.topbar{position:sticky;top:0;z-index:20;background:#100e20df;backdrop-filter:blur(18px);border-bottom:1px solid #ffffff12}.nav{height:70px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.4px}.brandmark{width:38px;height:38px;border-radius:13px;background:linear-gradient(135deg,var(--purple),var(--pink));display:grid;place-items:center;color:#211638;font-size:22px}.navlinks{display:flex;gap:7px;flex-wrap:wrap}.navlinks a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:800;padding:8px 11px;border-radius:10px}.navlinks a:hover{background:#ffffff12;color:white}.progressbox{display:flex;align-items:center;gap:9px;font-size:12px;color:var(--muted);font-weight:800}.progress{width:95px;height:7px;border-radius:99px;background:#393252;overflow:hidden}.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--purple),var(--pink));transition:.3s}
+.hero{padding:70px 0 54px;display:grid;grid-template-columns:1.2fr .8fr;gap:35px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid #a78bfa55;background:#a78bfa14;color:#d9cbff;padding:7px 12px;border-radius:99px;font-size:12px;font-weight:900;letter-spacing:1px}.hero h1{font-size:clamp(42px,7vw,76px);line-height:.99;letter-spacing:-3px;margin:19px 0}.gradient{background:linear-gradient(100deg,#c8b6ff,#f4a9d8 55%,#8de0ed);color:transparent;background-clip:text}.hero p{font-size:17px;color:var(--muted);max-width:620px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}.btn{border:0;border-radius:13px;padding:12px 18px;font-weight:900;transition:.2s}.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}.primary{background:linear-gradient(120deg,#a78bfa,#e7a4dc);color:#211633;box-shadow:0 8px 25px #a78bfa35}.secondary{background:#ffffff0b;border:1px solid var(--line);color:var(--text)}.hero-art{min-height:310px;display:grid;place-items:center;position:relative}.orbit{width:280px;height:280px;border:1px dashed #a78bfa66;border-radius:50%;display:grid;place-items:center;position:relative;animation:float 5s ease-in-out infinite}.robot{width:155px;height:165px;border-radius:42px 42px 48px 48px;background:linear-gradient(145deg,#d7c6ff,#a88bf0);box-shadow:inset -12px -12px 0 #8064c855,0 20px 60px #a78bfa44;position:relative;display:grid;place-items:center;color:#31204d;font-size:52px}.robot:before{content:"";position:absolute;width:70px;height:25px;border-radius:20px;background:#f6d4eb;top:-15px;left:42px}.robot:after{content:"";position:absolute;width:14px;height:25px;border-radius:9px;background:#a78bfa;top:-32px;left:70px}.face{background:#31204d;border-radius:22px;padding:14px 17px;color:#f8d7f1;font-size:30px;letter-spacing:6px}.bubble{position:absolute;background:#292342;border:1px solid #51466d;padding:9px 13px;border-radius:14px;font-size:12px;font-weight:900;box-shadow:var(--shadow)}.b1{top:28px;left:-20px}.b2{right:-25px;top:85px}.b3{bottom:24px;left:0}.spark{position:absolute;font-size:24px;animation:twinkle 2s infinite alternate}.s1{top:15px;right:40px}.s2{bottom:15px;right:25px;animation-delay:.7s}@keyframes float{50%{transform:translateY(-10px)}}@keyframes twinkle{to{transform:scale(.7) rotate(25deg);opacity:.5}}
+.section{padding:48px 0;scroll-margin-top:85px}.section-head{margin-bottom:24px}.kicker{color:var(--pink);font-size:11px;font-weight:900;letter-spacing:1.8px;text-transform:uppercase}.section h2{font-size:clamp(28px,4vw,42px);letter-spacing:-1.4px;line-height:1.1;margin:7px 0 10px}.lead{color:var(--muted);max-width:760px;margin:0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.card{background:linear-gradient(145deg,#211d3b,#19162e);border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:var(--shadow)}.card h3{margin:7px 0;font-size:18px}.card p{color:var(--muted);font-size:14px;margin:6px 0}.icon{width:43px;height:43px;border-radius:14px;display:grid;place-items:center;background:#a78bfa20;font-size:22px}.tag{display:inline-block;padding:4px 9px;border-radius:99px;background:#a78bfa18;color:#c9b9ff;font-size:11px;font-weight:900}.callout{border:1px solid #83d9ee55;background:#83d9ee0d;border-radius:16px;padding:16px 18px;color:#d9f7ff;margin:18px 0}.callout strong{color:var(--cyan)}.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}.code{background:#100e20;border:1px solid #393252;border-radius:13px;padding:15px;font:13px/1.8 'DM Mono',monospace;color:#d8d0f4;overflow:auto;white-space:pre}.code .prop{color:#f3a6d4}.code .val{color:#83d9ee}.code .comment{color:#8d83a8}.diagram{background:#141126;border:1px dashed #5b4c80;border-radius:14px;padding:12px;min-height:140px;display:flex;gap:9px;justify-content:center;align-items:center}.tile{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;color:#211633;font-weight:1000;font-size:18px;flex:0 0 48px}.tile:nth-child(1){background:#c5adff}.tile:nth-child(2){background:#f5acd6}.tile:nth-child(3){background:#8eddef}.tile:nth-child(4){background:#ffdc8b}
+.property-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.prop-card{background:#211d3b;border:1px solid var(--line);border-radius:16px;padding:16px}.prop-card code{font:13px 'DM Mono';color:var(--cyan)}.prop-card p{font-size:13px;color:var(--muted);margin:7px 0}.mini{height:83px;background:#131126;border:1px dashed #594c79;border-radius:10px;display:flex;gap:5px;padding:7px;margin-top:10px}.mini span{width:25px;height:25px;border-radius:6px;background:linear-gradient(135deg,#c5adff,#f3a6d4)}.lab{background:linear-gradient(145deg,#241e42,#19162e);border:1px solid #5b4a80;border-radius:22px;padding:22px;box-shadow:var(--shadow)}.controls{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}.control label{display:block;font-size:12px;font-weight:900;color:var(--muted);margin-bottom:6px}.control select{width:100%;background:#131126;border:1px solid #4b4269;border-radius:10px;color:white;padding:10px}.stage{height:240px;background:#131126;border:2px dashed #7866a7;border-radius:15px;padding:12px;display:flex;gap:10px;transition:.2s;overflow:auto}.stage .tile{width:54px;height:54px;flex-basis:54px}.lab-bottom{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:15px}.code-live{background:#100e20;border-radius:12px;padding:13px;font:12px/1.9 'DM Mono';color:#d9d0f5;white-space:pre-wrap}.hint{color:var(--muted);font-size:13px}.challenge{border:1px solid var(--line);background:#211d3b;border-radius:18px;padding:19px}.challenge-top{display:flex;justify-content:space-between;align-items:center;gap:12px}.challenge h3{margin:5px 0}.target{height:120px;background:#131126;border:1px dashed #5b4c80;border-radius:12px;display:flex;padding:9px;gap:8px}.target .tile{width:35px;height:35px;flex-basis:35px;font-size:13px}.feedback{padding:12px;border-radius:11px;background:#ffffff09;color:var(--muted);font-size:13px;margin-top:12px;min-height:43px}.quiz-options{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:12px 0}.quiz-options button{text-align:left;background:#151229;border:1px solid var(--line);color:var(--text);border-radius:11px;padding:11px;font-size:13px}.quiz-options button:hover{border-color:var(--purple)}.quiz-options button.correct{border-color:var(--green);background:#8ce0bd18}.quiz-options button.wrong{border-color:#f18a9d;background:#f18a9d18}.levelbar{display:flex;gap:6px}.levelbar span{height:6px;flex:1;background:#393252;border-radius:9px}.levelbar span.done{background:linear-gradient(90deg,var(--purple),var(--pink))}.mission{display:grid;grid-template-columns:1fr 1fr;gap:15px}.mission textarea{width:100%;min-height:185px;background:#100e20;border:1px solid var(--line);border-radius:12px;padding:13px;color:#e9e1ff;font:12px/1.6 'DM Mono';resize:vertical}.preview{border:1px dashed #71618f;border-radius:12px;padding:12px;min-height:185px;background:#131126}.preview .webhead{display:flex;justify-content:space-between;align-items:center;background:#2d2448;border-radius:8px;padding:10px;font-size:12px}.preview .webcards{display:flex;gap:8px;margin-top:9px}.preview .webcards div{flex:1;min-height:65px;border-radius:8px;background:linear-gradient(135deg,#7653c9,#e58abd);display:grid;place-items:center;font-size:12px;font-weight:900}.footer{border-top:1px solid #ffffff16;margin-top:45px;padding:30px 0;color:var(--muted);font-size:13px}.toast{position:fixed;bottom:20px;right:20px;background:#2b2448;border:1px solid #7866a7;padding:13px 17px;border-radius:14px;box-shadow:var(--shadow);z-index:40;transform:translateY(120px);transition:.3s}.toast.show{transform:translateY(0)}.hidden{display:none!important}
+@media(max-width:800px){.hero{grid-template-columns:1fr;padding-top:48px}.hero-art{min-height:260px}.orbit{width:230px;height:230px}.robot{transform:scale(.85)}.grid{grid-template-columns:1fr 1fr}.controls{grid-template-columns:1fr 1fr}.navlinks{display:none}.two,.lab-bottom,.mission{grid-template-columns:1fr}}@media(max-width:520px){.grid,.property-list{grid-template-columns:1fr}.hero h1{letter-spacing:-2px}.progressbox{display:none}.quiz-options{grid-template-columns:1fr}.stage{height:210px}.section{padding:35px 0}.card{padding:17px}}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="wrap nav">
+ <a class="brand" href="#inicio" style="text-decoration:none;color:inherit"><span class="brandmark">✦</span><span>FLEXBOX <span style="color:var(--pink)">WORLD</span></span></a>
+ <nav class="navlinks"><a href="#aprender">Aprender</a><a href="#laboratorio">Laboratorio</a><a href="#desafios">Desafíos</a><a href="#mision">Misión final</a></nav>
+ <div class="progressbox">TU PROGRESO <div class="progress"><span id="progressFill"></span></div><b id="progressText">0%</b></div>
+</div></header>
+<main>
+<section class="wrap hero" id="inicio">
+ <div><span class="eyebrow"> UNA AVENTURA DE CSS INTERACTIVA</span><h1>¡Bienvenida a <span class="gradient">Flexbox World!</span></h1>
+ <p>¿Alguna vez quisiste acomodar elementos en una página web sin volverte loca con los espacios? ¡Esta aventura es para vos! Aprendé a organizar, alinear y distribuir elementos usando Flexbox, paso a paso y jugando.</p>
+ <div class="actions"><a class="btn primary" href="#aprender">Comenzar aventura →</a><a class="btn secondary" href="#laboratorio">Ir al laboratorio </a></div>
+ <p style="font-size:12px;margin-top:18px"> No necesitás saber programación. Solo curiosidad y ganas de probar.</p></div>
+ <div class="hero-art"><div class="orbit"><span class="spark s1">✦</span><span class="spark s2">✧</span><div class="robot"><div class="face">•ᴗ•</div></div><div class="bubble b1">¡Hola, soy Flexi!</div><div class="bubble b2">display: flex ✨</div><div class="bubble b3">¡Vos podés! 💜</div></div></div>
+</section>
+<section class="section wrap" id="aprender">
+ <div class="section-head"><div class="kicker">01 · CONOCÉ EL PODER</div><h2>Primero, ¿qué es Flexbox?</h2><p class="lead">Flexbox (Flexible Box Layout) es una herramienta de CSS que nos permite organizar elementos dentro de un contenedor. Nos ayuda a alinearlos, cambiar su dirección y distribuir el espacio disponible.</p></div>
+ <div class="two">
+  <div class="card"><span class="icon"></span><h3>Imaginá una caja organizadora</h3><p>Tenés varios objetos y una caja. Flexbox te permite decidir si los ponés en fila, en columna, juntos, separados o centrados. ¡Eso mismo hacemos con los elementos de una página!</p><div class="diagram"><span class="tile">A</span><span class="tile">B</span><span class="tile">C</span></div></div>
+  <div class="card"><span class="icon"></span><h3>Dos protagonistas</h3><p><b style="color:var(--pink)">Contenedor flex:</b> el elemento padre al que le aplicamos <code>display: flex</code>.</p><p><b style="color:var(--cyan)">Ítems flex:</b> los elementos hijos que se acomodan siguiendo las reglas del contenedor.</p><div class="code"><span class="comment">/* El padre */</span>
+.contenedor {
+  <span class="prop">display</span>: <span class="val">flex</span>;
+}</div></div>
+ </div>
+ <div class="callout"><strong> Regla de oro:</strong> las propiedades principales de Flexbox se aplican al contenedor padre, no directamente a cada cajita. ¡Cuando activás Flexbox, sus hijos se convierten en ítems flex!</div>
+ <div class="section-head" style="margin-top:38px"><div class="kicker">02 · LAS PROPIEDADES PRINCIPALES</div><h2>Tu caja de herramientas </h2><p class="lead">Estas son las propiedades que vas a usar para controlar la distribución. Leé cada una y observá qué cambia.</p></div>
+ <div class="property-list">
+  <article class="prop-card"><code>display: flex;</code><h3> Activar Flexbox</h3><p>Convierte al elemento en un contenedor flex. Por defecto, sus hijos se acomodan en una fila.</p><div class="mini" style="justify-content:flex-start"><span></span><span></span><span></span></div></article>
+  <article class="prop-card"><code>flex-direction</code><h3>Elegir dirección</h3><p>Define el eje principal: <code>row</code> (fila), <code>column</code> (columna), <code>row-reverse</code> y <code>column-reverse</code>.</p><div class="mini" style="flex-direction:column;height:95px"><span></span><span></span><span></span></div></article>
+  <article class="prop-card"><code>justify-content</code><h3> Distribuir en el eje principal</h3><p>Controla cómo se distribuye el espacio: <code>flex-start</code>, <code>center</code>, <code>flex-end</code>, <code>space-between</code>, <code>space-around</code> y <code>space-evenly</code>.</p><div class="mini" style="justify-content:space-between"><span></span><span></span><span></span></div></article>
+  <article class="prop-card"><code>align-items</code><h3> Alinear en el eje transversal</h3><p>Alinea los ítems en el eje perpendicular al principal: <code>flex-start</code>, <code>center</code>, <code>flex-end</code> o <code>stretch</code>.</p><div class="mini" style="align-items:center;height:75px"><span></span><span></span><span></span></div></article>
+  <article class="prop-card"><code>flex-wrap</code><h3> ¿En una línea o varias?</h3><p>Indica si los elementos pueden pasar a otra línea: <code>nowrap</code>, <code>wrap</code> o <code>wrap-reverse</code>.</p><div class="mini" style="flex-wrap:wrap"><span></span><span></span><span></span><span></span><span></span></div></article>
+  <article class="prop-card"><code>gap</code><h3> Separar elementos</h3><p>Establece un espacio entre los ítems sin tener que agregar márgenes individualmente. Por ejemplo: <code>gap: 12px;</code>.</p><div class="mini" style="gap:13px"><span></span><span></span><span></span></div></article>
+ </div>
+ <div class="section-head" style="margin-top:38px"><div class="kicker">03 · ENTENDÉ LOS EJES</div><h2>¡El secreto está en los ejes!</h2><p class="lead">Este concepto te va a ayudar a entender por qué a veces usamos <code>justify-content</code> y otras <code>align-items</code>.</p></div>
+ <div class="two">
+  <div class="card"><h3 style="color:var(--pink)">Eje principal</h3><p>Es la dirección que marca <code>flex-direction</code>. Si usamos <code>row</code>, va horizontalmente. Si usamos <code>column</code>, va verticalmente.</p><div class="diagram" style="position:relative;flex-direction:column"><span style="color:var(--pink);font-size:12px;font-weight:900">↓ EJE PRINCIPAL (column)</span><div style="display:flex;gap:7px"><span class="tile">1</span><span class="tile">2</span><span class="tile">3</span></div></div></div>
+  <div class="card"><h3 style="color:var(--cyan)">Eje transversal</h3><p>Es perpendicular al eje principal. Si el principal es horizontal, el transversal es vertical; si el principal es vertical, el transversal es horizontal.</p><div class="diagram" style="flex-direction:column"><span style="color:var(--cyan);font-size:12px;font-weight:900">↔ EJE TRANSVERSAL</span><div style="display:flex;gap:7px"><span class="tile">1</span><span class="tile">2</span><span class="tile">3</span></div></div></div>
+ </div>
+ <div class="callout"><strong>¡OJO!</strong> <code>justify-content</code> siempre trabaja sobre el eje principal y <code>align-items</code> sobre el transversal. Si cambiás <code>flex-direction</code>, ¡también cambian los ejes!</div>
+</section>
+<section class="section wrap" id="laboratorio">
+ <div class="section-head"><div class="kicker">04 · EXPERIMENTÁ SIN MIEDO</div><h2>Laboratorio Flexbox </h2><p class="lead">¡Ahora tenés el control! Cambiá las propiedades y observá cómo se mueven las cajas. No podés romper nada: probá todas las combinaciones.</p></div>
+ <div class="lab">
+  <div style="display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap"><b> Panel de controles</b><span class="tag">MODO LIBRE</span></div>
+  <div class="controls">
+   <div class="control"><label for="justify">JUSTIFY-CONTENT</label><select id="justify"><option>flex-start</option><option>center</option><option>flex-end</option><option>space-between</option><option>space-around</option><option>space-evenly</option></select></div>
+   <div class="control"><label for="align">ALIGN-ITEMS</label><select id="align"><option>stretch</option><option>flex-start</option><option>center</option><option>flex-end</option></select></div>
+   <div class="control"><label for="direction">FLEX-DIRECTION</label><select id="direction"><option>row</option><option>column</option><option>row-reverse</option><option>column-reverse</option></select></div>
+   <div class="control"><label for="wrap">FLEX-WRAP</label><select id="wrap"><option>nowrap</option><option>wrap</option><option>wrap-reverse</option></select></div>
+   <div class="control"><label for="gap">GAP: <span id="gapValue">10px</span></label><input id="gap" type="range" min="0" max="35" value="10" style="width:100%;accent-color:var(--purple)"></div>
+  </div>
+  <div class="stage" id="playStage"><span class="tile">1</span><span class="tile">2</span><span class="tile">3</span><span class="tile">4</span></div>
+  <div class="lab-bottom"><div><div class="kicker" style="margin-bottom:8px">TU CÓDIGO EN TIEMPO REAL</div><div class="code-live" id="liveCode">.contenedor {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 10px;
+}</div></div><div><div class="kicker" style="margin-bottom:8px">¿QUÉ ESTÁ PASANDO?</div><div class="card" style="height:calc(100% - 22px);padding:14px"><p id="explain" style="margin:0">Los elementos se acomodan en una fila, comenzando desde el inicio. ¡Probá cambiar una propiedad!</p><button class="btn secondary" id="resetLab" style="margin-top:14px;padding:8px 12px;font-size:12px">↺ Reiniciar laboratorio</button></div></div></div>
+ </div>
+</section>
+<section class="section wrap" id="desafios">
+ <div class="section-head"><div class="kicker">05 · PONÉ A PRUEBA LO APRENDIDO</div><h2>Desafíos de Flexi </h2><p class="lead">Cuatro misiones cortitas. Elegí la respuesta correcta y ganá estrellas. ¡Si te equivocás, podés volver a intentarlo!</p></div>
+ <div class="challenge">
+  <div class="challenge-top"><span class="tag" id="qTag">MISIÓN 1 DE 4</span><span style="font-weight:900;color:var(--yellow)" id="stars">☆ ☆ ☆ ☆</span></div>
+  <div class="levelbar" style="margin:15px 0"><span id="bar0"></span><span id="bar1"></span><span id="bar2"></span><span id="bar3"></span></div>
+  <h3 id="question">¿Qué propiedad activa Flexbox en un contenedor?</h3><p class="hint" id="qDesc">Elegí una opción.</p>
+  <div class="quiz-options" id="options"></div>
+  <div class="feedback" id="quizFeedback" aria-live="polite"> ¡Confiá en lo que aprendiste!</div>
+  <div style="display:flex;justify-content:flex-end;margin-top:12px"><button class="btn primary" id="nextQuestion" disabled style="opacity:.45">Siguiente misión →</button></div>
+ </div>
+</section>
+<section class="section wrap" id="mision">
+ <div class="section-head"><div class="kicker">06 · PROYECTO FINAL</div><h2>¡Diseñá tu mini página web! </h2><p class="lead">Llegó el momento de combinar lo aprendido. Vas a construir una pequeña tarjeta de presentación usando Flexbox. Podés modificar el código y ver una vista previa.</p></div>
+ <div class="mission">
+  <div class="card"><div style="display:flex;justify-content:space-between;align-items:center"><b> Tu código HTML + CSS</b><span class="tag">EDITABLE</span></div><p class="hint">Probá cambiar <code>justify-content</code>, <code>align-items</code> y <code>gap</code>.</p>
+   <textarea id="projectCode" spellcheck="false"><div class="perfil">
+  <div class="avatar"></div>
+  <div>
+    <h2>¡Hola, soy una desarrolladora!</h2>
+    <p>Me encanta crear cosas con código.</p>
+    <button>Conoceme</button>
+  </div>
+</div>
+
+<style>
+.perfil {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.avatar { font-size: 48px; }
+</style></textarea>
+   <button class="btn primary" id="runProject" style="margin-top:12px">▶ Ejecutar mi diseño</button>
+  </div>
+  <div class="card"><b> Vista previa</b><p class="hint">Así se ve tu creación.</p><iframe id="projectPreview" title="Vista previa de tu página" sandbox="allow-scripts" style="width:100%;height:245px;background:white;border:0;border-radius:12px"></iframe></div>
+ </div>
+ <div class="callout" style="margin-top:18px"><strong> Tu misión:</strong> personalizá el texto, cambiá los colores si querés y probá distintas alineaciones. Cuando estés conforme, guardá una captura de pantalla de tu resultado.</div>
+ <div class="card" style="margin-top:18px;text-align:center"><div style="font-size:42px"></div><h3>¿Terminaste tu aventura?</h3><p>Completá las misiones y tu proyecto final. ¡Ya tenés una base para seguir creando páginas web!</p><div style="font-size:13px;color:var(--muted)" id="finalStatus">Misiones completadas: 0/4</div><button class="btn primary" id="certificate" style="margin-top:14px">Ver mi diploma </button><div id="diploma" class="hidden" style="margin-top:18px;padding:22px;border:2px solid #b69af5;border-radius:15px;background:linear-gradient(135deg,#33264e,#211b39)"><div style="font-size:32px"></div><div class="kicker">FLEXBOX WORLD CERTIFICA QUE</div><input id="studentName" placeholder="Escribí tu nombre" maxlength="35" style="margin:12px 0;padding:10px;border-radius:9px;border:1px solid #7968a0;background:#17132d;color:white;text-align:center;width:min(100%,280px)"><h2 style="color:#e7caff">¡Completó su aventura Flexbox!</h2><p>Por explorar, practicar y aprender a organizar elementos con CSS Flexbox.</p><button class="btn secondary" onclick="window.print()"> Imprimir / Guardar diploma</button></div></div>
+</section>
+</main>
+<footer class="footer"><div class="wrap" style="display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap"><span> FLEXBOX WORLD · Aprender también es jugar.</span><span>Hecho para futuras creadoras de tecnología </span></div></footer>
+<div class="toast" id="toast">¡Bien hecho! </div>
+<script>
+const $=id=>document.getElementById(id);
+const controls=['justify','align','direction','wrap'];
+const stage=$('playStage');
+function updateLab(){
+ const v={};controls.forEach(k=>v[k]=$(k).value);
+ const gap=$('gap').value;stage.style.justifyContent=v.justify;stage.style.alignItems=v.align;stage.style.flexDirection=v.direction;stage.style.flexWrap=v.wrap;stage.style.gap=gap+'px';$('gapValue').textContent=gap+'px';
+ $('liveCode').textContent=`.contenedor {\n  display: flex;\n  justify-content: ${v.justify};\n  align-items: ${v.align};\n  flex-direction: ${v.direction};\n  flex-wrap: ${v.wrap};\n  gap: ${gap}px;\n}`;
+ let msg=`Los elementos se organizan en ${v.direction.includes('column')?'una columna':'una fila'}${v.direction.includes('reverse')?' en orden inverso':''}. `;
+ msg+=v.justify==='center'?'Están centrados en el eje principal. ':v.justify==='flex-end'?'Se ubican al final del eje principal. ':v.justify==='space-between'?'El espacio libre se distribuye entre los elementos. ':v.justify==='space-around'?'Cada elemento tiene espacio alrededor. ':v.justify==='space-evenly'?'El espacio se reparte por igual entre todos los huecos. ':'Comienzan desde el inicio del eje principal. ';
+ msg+=v.align==='center'?'Además, están centrados en el eje transversal.':v.align==='flex-end'?'Están al final del eje transversal.':v.align==='stretch'?'Se estiran en el eje transversal si hay espacio y no tienen tamaño definido.':'Están al inicio del eje transversal.';
+ $('explain').textContent=msg;
+}
+controls.forEach(k=>$(k).addEventListener('change',updateLab));$('gap').addEventListener('input',updateLab);
+$('resetLab').addEventListener('click',()=>{ $('justify').value='flex-start';$('align').value='stretch';$('direction').value='row';$('wrap').value='nowrap';$('gap').value=10;updateLab();});
+updateLab();
+const questions=[
+ {q:'¿Qué propiedad activa Flexbox en un contenedor?',d:'Es el primer paso para empezar a organizar sus elementos hijos.',opts:['display: flex;','position: flex;','flex: display;','align: flex;'],a:0,why:'¡Exacto! display: flex convierte al elemento en un contenedor flex.'},
+ {q:'¿Qué propiedad distribuye los elementos sobre el eje principal?',d:'Pensá en cómo separar o centrar las cajas a lo largo de una fila.',opts:['align-items','justify-content','flex-wrap','gap'],a:1,why:'¡Muy bien! justify-content distribuye los elementos en el eje principal.'},
+ {q:'Si flex-direction es column, ¿cómo se orienta el eje principal?',d:'Recordá: column significa columna.',opts:['Horizontal','Diagonal','Vertical','No tiene eje'],a:2,why:'¡Correcto! Con column, el eje principal es vertical y el transversal horizontal.'},
+ {q:'¿Qué propiedad permite que los elementos pasen a otra línea?',d:'Su nombre se relaciona con envolver o hacer que algo pase a la línea siguiente.',opts:['flex-wrap','flex-direction','align-items','display'],a:0,why:'¡Genial! flex-wrap: wrap permite que los ítems salten a otra línea cuando hace falta.'}
+];
+let qi=0,answered=false,done=new Set();
+function renderQ(){
+ let q=questions[qi];$('qTag').textContent=`MISIÓN ${qi+1} DE 4`;$('question').textContent=q.q;$('qDesc').textContent=q.d;$('quizFeedback').textContent=' ¡Confiá en lo que aprendiste!';$('quizFeedback').style.color='var(--muted)';$('nextQuestion').disabled=true;$('nextQuestion').style.opacity='.45';$('nextQuestion').textContent=qi===3?'Ver resultado ':'Siguiente misión →';answered=false;
+ $('options').innerHTML='';q.opts.forEach((op,i)=>{let b=document.createElement('button');b.textContent=String.fromCharCode(65+i)+'. '+op;b.addEventListener('click',()=>answer(i,b));$('options').appendChild(b)});
+ for(let i=0;i<4;i++)$('bar'+i).classList.toggle('done',done.has(i));$('stars').textContent=[0,1,2,3].map(i=>done.has(i)?'':'☆').join(' ');
+ $('finalStatus').textContent=`Misiones completadas: ${done.size}/4`;updateProgress();
+}
+function answer(i,b){if(answered)return;answered=true;let q=questions[qi],buttons=$('options').querySelectorAll('button');buttons[q.a].classList.add('correct');if(i===q.a){done.add(qi);$('quizFeedback').textContent=' '+q.why;$('quizFeedback').style.color='var(--green)';showToast('¡Respuesta correcta! +1 estrella ')}else{$('quizFeedback').textContent=' ¡Buen intento! '+q.why;$('quizFeedback').style.color='var(--pink)';b.classList.add('wrong')}$('nextQuestion').disabled=false;$('nextQuestion').style.opacity='1';$('finalStatus').textContent=`Misiones completadas: ${done.size}/4`;for(let j=0;j<4;j++)$('bar'+j).classList.toggle('done',done.has(j));$('stars').textContent=[0,1,2,3].map(j=>done.has(j)?'':'☆').join(' ');updateProgress();}
+$('nextQuestion').addEventListener('click',()=>{if(!answered)return;if(qi===3){qi=0;renderQ();$('quizFeedback').textContent=done.size===4?' ¡Completaste todas las misiones! ¡Sos una estrella Flexbox!':'Podés repetir las misiones para conseguir todas las estrellas.'}else{qi++;renderQ()}});
+function updateProgress(){let p=Math.round(done.size/4*100);$('progressFill').style.width=p+'%';$('progressText').textContent=p+'%'}
+function showToast(t){$('toast').textContent=t;$('toast').classList.add('show');setTimeout(()=>$('toast').classList.remove('show'),2200)}
+renderQ();
+function runProject(){let code=$('projectCode').value;let safe=code.replace(/<script/gi,'&lt;script').replace(/<\/script/gi,'&lt;/script');$('projectPreview').srcdoc='<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{font-family:Arial,sans-serif;padding:15px;color:#27213b}.perfil{border-radius:14px;background:#f1eaff;padding:18px;min-height:150px}.perfil h2{font-size:18px}.perfil p{font-size:13px}.perfil button{background:#7653c9;color:white;border:0;padding:9px 13px;border-radius:8px}</style></head><body>'+safe+'</body></html>'}
+$('runProject').addEventListener('click',()=>{runProject();showToast('¡Tu diseño se actualizó! ')});runProject();
+$('certificate').addEventListener('click',()=>{if(done.size<4){$('diploma').classList.remove('hidden');$('diploma').innerHTML='<div style="font-size:26px"></div><b>¡Seguí intentando!</b><p>Te faltan '+(4-done.size)+' misión(es). Volvé a los desafíos y completalas para desbloquear tu diploma.</p>'}else{$('diploma').classList.remove('hidden');$('diploma').innerHTML='<div style="font-size:32px"></div><div class="kicker">FLEXBOX WORLD CERTIFICA QUE</div><input id="studentName" placeholder="Escribí tu nombre" maxlength="35" style="margin:12px 0;padding:10px;border-radius:9px;border:1px solid #7968a0;background:#17132d;color:white;text-align:center;width:min(100%,280px)"><h2 style="color:#e7caff">¡Completó su aventura Flexbox!</h2><p>Por explorar, practicar y aprender a organizar elementos con CSS Flexbox.</p><button class="btn secondary" onclick="window.print()"> Imprimir / Guardar diploma</button>'}});
+</script>
+</body></html>
